@@ -1,0 +1,31 @@
+spring:
+   application:
+      name: eureka-server-clustered
+server:
+   port: 9001
+eureka:
+   instance:
+      hostname: eureka-1
+      metadataMap.zone: north
+   client:
+      preferSameZoneEureka: true
+      healthcheck:
+         enabled: true
+      registerWithEureka: true
+      fetchRegistry: false
+      region: pt
+      serviceUrl:
+         defaultZone: http://localhost:9002/eureka/
+         north: http://localhost:9001/eureka/
+         center: http://localhost:9002/eureka/ 
+      availability-zones:
+         pt: north, center
+#    region: north
+# ----------------
+# Orphan comments:
+# ----------------
+# Was at begin of line:18 :#    serviceUrl:
+# Was at begin of line:19 :#       defaultZone: http://localhost:9002/eureka/
+# Was at begin of line:20 :#       center: http://localhost:9001/eureka/
+# Was at begin of line:21 :#    availability-zones:
+# Was at begin of line:22 :#      north: defaultZone,center

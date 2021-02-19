@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: rating
+server:
+  port: 8091
+  
+eureka:
+  instance:
+    metadataMap.zone: north
+  client:
+    prefer-same-zone-eureka: true
+    region: pt
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+      center: http://localhost:9002/eureka/
+      north: http://localhost:9001/eureka/      
+    availability-zones:
+      pt: north, center
